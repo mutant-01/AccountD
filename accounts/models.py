@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Email(models.Model):
@@ -31,3 +32,4 @@ class Account(models.Model):
         models.SET_NULL,
         null=True,
     )
+    owner = models.ForeignKey(User, models.CASCADE, null=True)
