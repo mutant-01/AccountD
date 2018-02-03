@@ -9,6 +9,9 @@ class Email(models.Model):
         max_length=2048,
         verbose_name="Address in which this email can be used"
     )
+    owner = models.ForeignKey(
+        User, models.CASCADE, related_name='registered_email', null=True
+    )
     broken_count = models.PositiveSmallIntegerField(
         default=0,
         verbose_name="Broken report count"
